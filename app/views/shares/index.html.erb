@@ -1,0 +1,40 @@
+<% @share_title = "Shares" %>
+<div class="shares index">
+	<h2> Share </h2> 
+	<%= link_to(" Add a transaction details", {:action => 'new'}, :class => 'action new')%>
+	<table class="listing" summary="Share list">
+		<tr class="header">
+			<th> Scrip Name </th>
+			<th> Transaction Date </th>
+			<th> Buy/Sell </th>
+			<th> Quantity </th>
+			<th> Unit Price </th>
+			<th> Brokerage </th>
+			<th> Net rate </th>
+			<th> Net Value </th>
+			<th> Bank Balance </th>
+			<th> Demat Balance </th>
+			<th> User ID </th>
+		</tr>
+		<% @shares.each do |share| %>
+		<tr class="<%= cycle('odd', 'even') %>">
+			<td><%= share.scrip_name %></td>
+			<td><%= share.transaction_date %></td>	
+			<td><%= share.buy_sell %></td>
+			<td><%= share.quantity %></td>
+			<td><%= share.rate %></td>
+			<td><%= share.brokerage %></td>
+			<td><%= share.net_rate %></td>	
+			<td><%= share.net_value %></td>
+			<td><%= share.bank_balance %></td>
+			<td><%= share.demat_balance %></td>
+			<td><%= share.user_id %></td>
+			<td class="actions">
+				<%= link_to("Show", '#', :class =>'action show') %>
+				<%= link_to("Edit", edit_share_path(share.id), :class =>'action edit') %>
+				<%= link_to("Delet", share_path(share.id), method: :delete, 'class' =>'action edit')   %>
+			</td>
+			</tr>
+		<% end %>	
+	</table>
+</div>

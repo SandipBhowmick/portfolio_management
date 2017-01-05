@@ -1,0 +1,10 @@
+<%= link_to("< Back to Main", {:action => 'index'}, :class => 'back-link') %>
+<div class ="new share">
+	<h2> Add a transaction details</h2>
+	<%= form_for(:share, :url => {:action => 'create'}) do |f| %>
+		<%= render(:partial => "form", :locals => {:f => f}) %>
+		<div class="form-buttons">
+			<%= submit_tag("Create Entry") %>
+		</div>
+	<% end %>
+</div>

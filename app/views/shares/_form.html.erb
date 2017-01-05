@@ -1,0 +1,43 @@
+<%= error_messages_for(@share) %>
+
+<table summary="Share form fields">
+	<tr>
+		<th><%= f.label(:scrip_name, "Scrip Name")%></th>
+		<td><%= f.text_field(:scrip_name) %></td>
+	</tr>
+	<tr>
+		<th><%= f.label(:transaction_date, "Transaction Date")%></th>
+		<td><%= f.date_field(:transaction_date, min: Date.today - 365.days, :value => Date.today) %></td>
+	</tr>	
+	<tr>
+        <th><%=f.label(:buy_sell) %></th>
+        <td><%= f.radio_button(:buy_sell, 'buy') %> Buy
+        <%= f.radio_button(:buy_sell, 'sell') %> Sell
+        </td>
+    </tr>
+    <tr>
+		<th><%= f.label(:quantity, "Scrip Qantity")%></th>
+		<td><%= f.text_field(:quantity) %></td>
+	</tr>
+	<tr>
+		<th><%= f.label(:rate, "Scrip unit price")%></th>
+		<td><%= f.text_field(:rate) %></td>
+	</tr>
+	<tr>
+		<th><%= f.label(:brokerage, "Brokerage")%></th>
+		<td><%= f.text_field(:brokerage) %></td>
+	</tr>
+	<tr>
+		<th><%= f.label(:net_rate, "Net rate")%></th>
+		<td><%= f.text_field(:net_rate) %></td>
+	</tr>
+	<tr>
+		<th><%= f.label(:net_value, "Net Value")%></th>
+		<td><%= f.text_field(:net_value) %></td>
+	</tr>
+	<tr>
+		<th><%= f.label(:user_id, "User ID")%></th>
+		<td><%= f.text_field(:user_id) %></td>
+	</tr>
+</table>
+

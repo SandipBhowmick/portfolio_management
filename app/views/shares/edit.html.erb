@@ -1,0 +1,10 @@
+<%= link_to("< Back to Main", shares_path, :class => 'back-link') %>
+<div class ="new share">
+	<h2> Update the transaction details</h2>
+	<%= form_for(:share, :url => {:action => 'update', :id => @share.id}) do |f| %>
+		<%= render(:partial => "form", :locals => {:f => f}) %>
+		<div class="form-buttons">
+			<%= submit_tag("Update Transaction") %>
+		</div>
+	<% end %>
+</div>
