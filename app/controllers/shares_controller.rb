@@ -11,8 +11,8 @@ layout "admin"
   def index
     
     @q = Share.ransack(params[:q])
-    @shares = @q.result(distinct: true) 
-
+    @shares = @q.result(distinct: true)
+    
   end
   
   
