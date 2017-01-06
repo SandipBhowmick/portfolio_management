@@ -2,6 +2,20 @@
 <div class="shares index">
 	<h2> Share </h2> 
 	<%= link_to(" Add a transaction details", {:action => 'new'}, :class => 'action new')%>
+
+		<%= search_form_for( @q, url: search_shares_path, html: { method: :post })do |f| %>
+
+  		# Search if the name field contains...
+  			<%= f.label :scrip_name %>
+			<%= f.search_field :scrip_name %>
+			<%= f.submit %>
+		<% end %>
+
+		<%= content_tag :table do %>
+  		<%= content_tag :th, sort_link(@q, :scrip_name) %>
+  		<%= content_tag :th, sort_link(@q, :transaction_date) %>
+  		%= content_tag :th, sort_link(@q, :employees_last_name) %>
+		<% end %>
 	<table class="listing" summary="Share list">
 		<tr class="header">
 			<th> Scrip Name </th>

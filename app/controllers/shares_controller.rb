@@ -2,10 +2,19 @@ class SharesController < ApplicationController
 
 layout "admin"
 
-  def index
-  	@shares= Share.sorted
+  def search
+   
+    index    
+    render :index
   end
 
+  def index
+    
+    @q = Share.ransack(params[:q])
+    @shares = @q.result(distinct: true) 
+
+  end
+  
   
   def new
   	@share = Share.new()

@@ -29,6 +29,9 @@ gem 'turbolinks'
 gem 'bcrypt', '~> 3.1.7'
 #gem 'acts_as_list', '~> 0.8.2'
 
+
+gem 'ransack'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
