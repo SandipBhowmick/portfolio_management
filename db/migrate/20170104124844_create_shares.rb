@@ -2,7 +2,7 @@ class CreateShares < ActiveRecord::Migration
   def up
     create_table :shares do |t|
     	t.string "scrip_name", :limit => 250 
-    	t.datetime "transaction_date" 
+    	t.date "transaction_date" 
     	t.string "buy_sell" 
     	t.integer "quantity" 
     	t.integer "rate" 

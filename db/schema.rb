@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20170104124844) do
 
   create_table "shares", force: :cascade do |t|
     t.string   "scrip_name",       limit: 250
-    t.datetime "transaction_date"
+    t.date     "transaction_date"
     t.string   "buy_sell",         limit: 255
     t.integer  "quantity",         limit: 4
     t.integer  "rate",             limit: 4

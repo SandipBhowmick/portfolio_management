@@ -21,8 +21,8 @@ layout "admin"
   end
 
   def create
-  	@share = Share.new(share_params)
-  	if @share.save 
+    @share = Share.new(share_params)
+    if @share.save 
   		flash[:notice]= "Transaction details saved successfully"
   		redirect_to(shares_path)
   	else
@@ -36,7 +36,7 @@ layout "admin"
 
   def update
   	@share = Share.find(params[:id])
-  		if @share.update_attributes(share_params)
+    	if @share.update_attributes(share_params)
   			flash[:notice]= "Transection details updated successfully"
   			redirect_to(shares_path(:id))
   		else
@@ -56,7 +56,7 @@ layout "admin"
 
 private
   def share_params
-  	params.require(:share).permit(:scrip_name, :transaction_date, :buy_sell, :quantity, :rate, :brokerage, :net_rate, :net_value, :bank_balance, :demat_balance, :user_id )
+     	params.require(:share).permit(:scrip_name, :transaction_date, :buy_sell, :quantity, :rate, :brokerage, :net_rate, :net_value, :bank_balance, :demat_balance, :user_id )
   end
 
 end

@@ -11,29 +11,29 @@
 	</tr>	
 	<tr>
         <th><%=f.label(:buy_sell) %></th>
-        <td><%= f.radio_button(:buy_sell, 'buy') %> Buy
+        <td colspan="2"><%= f.radio_button(:buy_sell, 'buy') %> Buy
         <%= f.radio_button(:buy_sell, 'sell') %> Sell
         </td>
     </tr>
     <tr>
-		<th><%= f.label(:quantity, "Scrip Qantity")%></th>
-		<td><%= f.text_field(:quantity) %></td>
+		<th><%= f.label(:quantity, "Scrip Qantity", )%></th>
+		<td><%= f.text_field(:quantity, :id=>"share-quantity") %></td>
 	</tr>
 	<tr>
 		<th><%= f.label(:rate, "Scrip unit price")%></th>
-		<td><%= f.text_field(:rate) %></td>
+		<td><%= f.text_field(:rate, :id=>"share-rate") %></td>
 	</tr>
 	<tr>
 		<th><%= f.label(:brokerage, "Brokerage")%></th>
-		<td><%= f.text_field(:brokerage) %></td>
+		<td><%= f.text_field(:brokerage, :id=>"share-brokerage") %></td>
 	</tr>
 	<tr>
 		<th><%= f.label(:net_rate, "Net rate")%></th>
-		<td><%= f.text_field(:net_rate) %></td>
+		<td><%= f.text_field(:net_rate, :id=>"share-net_rate") %></td>
 	</tr>
 	<tr>
 		<th><%= f.label(:net_value, "Net Value")%></th>
-		<td><%= f.text_field(:net_value) %></td>
+		<td><%= f.text_field(:net_value, :id=>"share-net_value") %></td>
 	</tr>
 	<tr>
 		<th><%= f.label(:user_id, "User ID")%></th>

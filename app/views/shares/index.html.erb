@@ -19,17 +19,19 @@
 		<tr class="<%= cycle('odd', 'even') %>">
 			<td>
 			<%= search_form_for( @q, url: search_shares_path, html: { method: :post })do |f| %>
-			<%= f.search_field :scrip_name_cont %></td>		
-			<td><%= f.search_field :transaction_date %></td>
-			<td><%= f.search_field :buy_sell %></td>
-			<td><%= f.search_field :quantity %></td>
-			<td><%= f.search_field :rate %>	</td>
-			<td><%= f.search_field :brokerage %></td>
-			<td><%= f.search_field :net_rate %></td>
-			<td><%= f.search_field :net_value %></td>		
-			<td><%= f.search_field :bank_balance %></td>
-			<td><%= f.search_field :demat_balance %></td>		
-			<td><%= f.submit %></td>
+			<%= f.collection_select :scrip_name_cont, Share.unique_by_scrip_name,:scrip_name,:scrip_name,{:include_blank =>"Please select"  }%></td>	
+			<td><%= f.collection_select :transaction_date_cont, Share.unique_by_transaction_date,:transaction_date, :transaction_date,{:include_blank =>"Please select"  }%></td>
+			<td><%= f.collection_select :buy_sell_cont, Share.unique_by_buy_sell,:buy_sell,:buy_sell, {:include_blank =>"Please select"  }%></td>
+			<td><%= f.collection_select :quantity_cont, Share.unique_by_quantity,:quantity, :quantity,{:include_blank =>"Please select"  }%></td>
+			<td><%= f.collection_select :rate_cont, Share.unique_by_rate,:rate, :rate,{:include_blank =>"Please select"  }%></td>
+			<td></td>
+			<td></td>
+			<td></td>		
+			<td></td>
+			<td></td>
+			<td><%= f.collection_select :user_id_cont, Share.unique_by_user_id,:user_id, :user_id,{:include_blank =>"Please select"  }%></td>		
+			<td colspan="2"><%=f.collection_select :user_id_cont, Share.unique_by_user_id,:user_id, :user_id,{:include_blank =>"Please select Time range"  } %>
+			<%=f.submit %></td>
 			<% end %>
 		</tr>
 		<% @shares.each do |share| %>
