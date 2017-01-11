@@ -2,35 +2,56 @@
 // All this logic will automatically be available in application.js.
 
 $(document).on('change', '#share-rate', function() {
-	// $(document).on('click', '#share-buy',function() {
-   		if(!$('#share-buy').is(':checked') && !$('#share-sell').is(':checked')) { 
-   			alert(" Buy or Sell it's checked"); 
-   			$("#share-rate").val("");
-   			return;
-   		}
+	if(!$('#share-buy').is(':checked') && !$('#share-sell').is(':checked')) { 
+	alert(" Buy or Sell it's checked"); 
+	$("#share-rate").val("");
+	$("#share-quantity").val("");
+	return;
+		}
+
+
 	//Brokerage claculation
-
-
 	var brokerage = parseInt($("#share-rate").val()) * 0.01;
 	if (brokerage < 17){
     brokerage = 17
  	}
- 	$("#share-brokerage").val(brokerage);
+ 	$("#share-brokerage").text(brokerage);
 
  	
 
  	//Net rate calculation
  	if($('#share-buy').is(':checked') == false){
-   		var netRate = parseInt($("#share-rate").val()) - parseInt($("#share-brokerage").val());
+   		var netRate = parseInt($("#share-rate").val()) - parseInt($("#share-brokerage").text());
 		}
     else{
-    	 var netRate = parseInt($("#share-rate").val()) + parseInt($("#share-brokerage").val()) ;
+    	 var netRate = parseInt($("#share-rate").val()) + parseInt($("#share-brokerage").text()) ;
 	}
-	$("#share-net_rate").val(netRate);
+	$("#share-net_rate").text(netRate);
 	
 	//Net Value calculation
-	var netValue = parseInt($("#share-net_rate").val()) * parseInt($("#share-quantity").val()) ;
-     $("#share-net_value").val(netValue);
+	var netValue = parseInt($("#share-net_rate").text()) * parseInt($("#share-quantity").val()) ;
+     $("#share-net_value").text(netValue);
+	});
+
+
+
+
+//Radio button alter 
+//sell
+$(document).on('change', '#share-sell',function(){
+	$("#share-rate").val("");
+	$("#share-quantity").val("");
+	$("#share-brokerage").text("");
+	$("#share-net_rate").text("");
+	$("#share-net_value").text("");
+	});
+//buy
+$(document).on('change', '#share-buy',function(){
+	$("#share-rate").val("");
+	$("#share-quantity").val("");
+	$("#share-brokerage").text("");
+	$("#share-net_rate").text("");
+	$("#share-net_value").text("");
 	});
 
 
@@ -38,21 +59,11 @@ $(document).on('change', '#share-rate', function() {
 
 //$(document).on('change', '#share-brokerage',function(){
 
-$(document).on('click', '#share-brokerage',function(){ 
-	 $("#share-brokerage").attr('readonly','readonly');
-});
+//$(document).on('click', '#share-brokerage',function(){ 
+//	 $("#share-brokerage").attr('readonly','readonly');
+//});
 
-$(document).on('click', '#share-net_rate',function(){ 
-	 $("#share-net_rate").attr('readonly','readonly');
-});
 
-$(document).on('click', '#share-net_value',function(){ 
-	 $("#share-net_value").attr('readonly','readonly');
-});
-
-$(document).on('click', '#share-user_id',function(){ 
-	 $("#share-user_id").attr('readonly','readonly');
-});
 
 //var a=$("#share-quantity").val() * $("#share-rate").val() * 0.01
 		//$("#share-brokerage").val(a);

@@ -25,19 +25,19 @@
 	</tr>
 	<tr>
 		<th><%= f.label(:brokerage, "Brokerage")%></th>
-		<td><%= f.text_field(:brokerage, :id=>"share-brokerage") %></td>
+		<td><%= f.label(:brokerage, :value=>" ", :id=>"share-brokerage") %></td>
 	</tr>
 	<tr>
 		<th><%= f.label(:net_rate, "Net rate")%></th>
-		<td><%= f.text_field(:net_rate, :id=>"share-net_rate") %></td>
+		<td><%= f.label(:net_rate, :value=>"0", :id=>"share-net_rate") %></td>
 	</tr>
 	<tr>
 		<th><%= f.label(:net_value, "Net Value")%></th>
-		<td><%= f.text_field(:net_value, :id=>"share-net_value") %></td>
+		<td><%= f.label(:net_value, :value=>"0", :id=>"share-net_value") %></td>
 	</tr>
 	<tr>
 		<th><%= f.label(:user_id, "User ID")%></th>
-		<td><%= f.text_field(:user_id, :id=>"share-user_id",:value=>"Sandip") %></td>
+		<td><%= f.label(:user_id, :id=>"share-user_id", :value=>"Sandip") %></td>
 	</tr>
 </table>
 
