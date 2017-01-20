@@ -1,7 +1,7 @@
 class Share < ActiveRecord::Base
 
 	validates 	:scrip_name, :transaction_date,:buy_sell, :presence => true
-	validates 	:quantity,:rate,:brokerage, numericality: true, :presence => true	
+	validates 	:quantity,:rate,:brokerage, :presence => true, numericality: true	
 	#validates 	:scrip_name , :presence => true,
 				#:length => { :maximum =>255},
 				#:uniqueness => true

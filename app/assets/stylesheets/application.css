@@ -12,6 +12,8 @@
  *
  *= require_self
  *= require public
+ *= require jquery.ui.all
+ *= require select2
  *= require admin
  *= require_tree .
  */

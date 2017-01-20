@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+var quote;
+
+$(document).ready(function() {
+stockPrice();
+setInterval(function(){
+stockPrice()
+}, 30000);
+});
+
+function stockPrice()
+{
+$.ajax({
+url: "http://finance.google.com/finance/info?client=ig&q=NSE:NIFTY,INDEXBOM:SENSEX",
+dataType: "jsonp",
+jsonp: "callback",
+jsonpCallback: "quote"
+});
+var i = 0;
+quote = function(data) {
+$.each(data, function( key, val ){
+$("#sensex"+i).val(data[i].l_cur)
+i++;
+});
+};
+}
+
+</script>
+</head>
+<body>
+
+<label style="width:300px; padding-right:37px;">Nifty</label>   <input type = "text" id = "sensex0"><br><br>
+<label style="width:300px;padding-right:30px;">Sensex</label><input type = "text" id = "sensex1">
+
+</body>
+</html>

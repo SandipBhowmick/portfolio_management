@@ -11,12 +11,12 @@ gem 'mysql', '~> 2.9', '>= 2.9.1'
 # Use Uglifier as compressor for JavaScript assets
 #gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
-#gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
+gem 'httparty', '~> 0.13.7'
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 4.1', '>= 4.1.1'
 gem 'javascript', '~> 0.0.2'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
@@ -24,14 +24,16 @@ gem 'turbolinks'
 #gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 #gem 'sdoc', '~> 0.4.0', group: :doc
-
+gem 'responders', '~> 2.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 #gem 'acts_as_list', '~> 0.8.2'
-
-
+gem 'jquery-ui-rails', '~> 4.2.1'
+gem 'select2-rails', '~> 4.0', '>= 4.0.3'
 gem 'ransack'
-
+gem 'json', '~> 1.8', '>= 1.8.3'
+gem 'json_pure', '~> 1.8', '>= 1.8.3'
+gem 'whenever', '~> 0.9.4'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

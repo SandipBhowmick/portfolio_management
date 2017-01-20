@@ -2,8 +2,8 @@
 
 <table summary="Share form fields">
 	<tr>
-		<th><%= f.label(:scrip_name, "Scrip Name")%></th>
-		<td><%= f.text_field(:scrip_name) %></td>
+		<th><%= f.label(:scrip_name, "Script Name")%></th>
+		<td><%= f.select(:scrip_name, @equitys.pluck(:name,:code),{prompt: 'Please select'}, id: "js-scrip-name")%></td>
 	</tr>
 	<tr>
 		<th><%= f.label(:transaction_date, "Transaction Date")%></th>
@@ -16,7 +16,7 @@
         </td>
     </tr>
     <tr>
-		<th><%= f.label(:quantity, "Scrip Qantity", )%></th>
+		<th><%= f.label(:quantity, "Script Qantity", )%></th>
 		<td><%= f.text_field(:quantity, :id=>"share-quantity") %></td>
 	</tr>
 	<tr>
@@ -25,19 +25,19 @@
 	</tr>
 	<tr>
 		<th><%= f.label(:brokerage, "Brokerage")%></th>
-		<td><%= f.label(:brokerage, :value=>" ", :id=>"share-brokerage") %></td>
+		<td><%= f.text_field(:brokerage, :id=>"share-brokerage", :readonly=>true) %></td>
 	</tr>
 	<tr>
 		<th><%= f.label(:net_rate, "Net rate")%></th>
-		<td><%= f.label(:net_rate, :value=>"0", :id=>"share-net_rate") %></td>
+		<td><%= f.text_field(:net_rate, :id=>"share-net_rate", :readonly=>true) %></td>
 	</tr>
 	<tr>
 		<th><%= f.label(:net_value, "Net Value")%></th>
-		<td><%= f.label(:net_value, :value=>"0", :id=>"share-net_value") %></td>
+		<td><%= f.text_field(:net_value,  :id=>"share-net_value", :readonly=>true) %></td>
 	</tr>
 	<tr>
 		<th><%= f.label(:user_id, "User ID")%></th>
-		<td><%= f.label(:user_id, :id=>"share-user_id", :value=>"Sandip") %></td>
+		<td><%= f.text_field(:user_id, :id=>"share-user_id", :value=>"Sandip", :readonly=>true) %></td>
 	</tr>
 </table>
 

@@ -1,5 +1,6 @@
 class SharesController < ApplicationController
 
+
 layout "admin"
 
   def search
@@ -18,15 +19,17 @@ layout "admin"
   
   def new
   	@share = Share.new()
+    @equitys = Equity.order('code asc').all    
   end
 
   def create
     @share = Share.new(share_params)
-    if @share.save 
+     if @share.save 
   		flash[:notice]= "Transaction details saved successfully"
   		redirect_to(shares_path)
   	else
-  		render(new_share_path)
+      @equitys = Equity.order('code asc').all
+      render(new_share_path)
   	end
   end
 
