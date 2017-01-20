@@ -21,15 +21,15 @@
 			<%= search_form_for( @q, url: search_shares_path, html: { method: :post })do |f| %>
 			<%= f.collection_select :scrip_name_eq, Share.unique_by_scrip_name,:scrip_name,:scrip_name,include_blank: 'Please select'%></td>	
 			<td><%= f.collection_select :transaction_date_eq, Share.unique_by_transaction_date,:transaction_date, :transaction_date,prompt: 'Please select'%></td>
-			<td><%= f.select :buy_sell_eq,[:buy,:sell],prompt: 'Please select'%></td>
-			<td><%= f.collection_select :quantity_eq, Share.unique_by_quantity,:quantity, :quantity,prompt: 'Please select'%></td>
-			<td><%= f.collection_select :rate_eq, Share.unique_by_rate,:rate, :rate,prompt: 'Please select'%></td>
+			<td><%= f.select :buy_sell_eq,[:buy,:sell],:include_blank => 'Please select'%></td>
+			<td></td>
+			<td></td>
 			<td></td>
 			<td></td>
 			<td></td>		
 			<td></td>
 			<td></td>
-			<td><%= f.collection_select :user_id_cont, Share.unique_by_user_id,:user_id, :user_id,{:include_blank =>"Please select"  }%></td>		
+			<td></td>		
 			<td>
 			<%=f.submit %></td>
 			<% end %>
