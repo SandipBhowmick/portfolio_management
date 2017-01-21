@@ -36,8 +36,8 @@
 		<td><%= f.text_field(:net_value,  :id=>"share-net_value", :readonly=>true) %></td>
 	</tr>
 	<tr>
-		<th><%= f.label(:user_id, "User ID")%></th>
-		<td><%= f.text_field(:user_id, :id=>"share-user_id", :value=>"Sandip", :readonly=>true) %></td>
+		<th></th>
+		<td><%= f.hidden_field(:user_id, :id=>"share-user_id", :value=>"Sandip") %></td>
 	</tr>
 </table>
 

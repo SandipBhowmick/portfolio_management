@@ -46,7 +46,8 @@ $(document).on('change', '#share-quantity', function(){
 			$.get(rw_url, function(data) {
 				data = data.replace('//', '');
 				var jqObj = jQuery.parseJSON(data);
-	    		$("#share-rate").val(jqObj[0]["l"]);
+				rate = jqObj[0]["l"]
+	    		$("#share-rate").val(rate);
 	    		if(!$('#share-buy').is(':checked') && !$('#share-sell').is(':checked')) { 
 					alert(" Buy or Sell it's checked"); 
 					$("#share-rate").val("");
@@ -54,29 +55,38 @@ $(document).on('change', '#share-quantity', function(){
 					return;
 					}
 	//Brokerage claculation
+	$("#share-net_value").removeAttr('readonly');
+	$("#share-net_rate").removeAttr('readonly');
+	$("#share-brokerage").removeAttr('readonly');
 	var brokerage = parseInt($("#share-rate").val()) * 0.01 ;	
-	var total_brokerage = brokerage * parseInt($("#share-quantity").val())
+	var total_brokerage = brokerage * parseInt($("#share-quantity").val());
 	// alert(total_brokerage);
 	if (total_brokerage < 17){
     brokerage = 17/parseInt($("#share-quantity").val())
- 	}
- 	$("#share-brokerage").removeAttr('readonly');
+ 	} 	
+ 	brokerage =brokerage.toFixed(2);
  	$("#share-brokerage").val(brokerage)
- 	$("#share-brokerage").attr('readonly', true);
+ 	
  	
 
  	//Net rate calculation
  	if($('#share-buy').is(':checked') == false){
-   		var netRate = parseInt($("#share-rate").val()) - parseInt($("#share-brokerage").val());
+ 		alert(parseInt($("#share-rate").val()));
+   		var netRate = $("#share-rate").val() - parseInt($("#share-brokerage").val());
 		}
     else{
-    	 var netRate = parseInt($("#share-rate").val()) + parseInt($("#share-brokerage").val()) ;
+    	alert(parseInt($("#share-rate").val()));
+    	 var netRate = $("#share-rate").val() + parseInt($("#share-brokerage").val());
 	}
 	$("#share-net_rate").val(netRate);
 	
+	
 	//Net Value calculation
-	var netValue = parseInt($("#share-net_rate").val()) * parseInt($("#share-quantity").val()) ;
+	var netValue = parseInt($("#share-net_rate").val()) * parseInt($("#share-quantity").val());
      $("#share-net_value").val(netValue);
+     $("#share-net_value").attr('readonly', true);
+     $("#share-brokerage").attr('readonly', true);
+     $("#share-net_rate").attr('readonly', true);
 	    		});
 		}
 
@@ -87,6 +97,10 @@ $(document).on('change', '#share-quantity', function(){
 
 
 $(document).on('change', '#share-rate', function(){
+	$("#share-brokerage").removeAttr('readonly');
+	$("#share-net_rate").removeAttr('readonly');
+	$("#share-net_value").removeAttr('readonly');
+
 	if(!$('#share-buy').is(':checked') && !$('#share-sell').is(':checked')) { 
 		alert(" Buy or Sell it's checked"); 
 		$("#share-rate").val("");
@@ -95,60 +109,29 @@ $(document).on('change', '#share-rate', function(){
 		}
 	//Brokerage claculation
 	var brokerage = parseInt($("#share-rate").val()) * 0.01 ;
-	var total_brokerage = brokerage * parseInt($("#share-quantity").val())
+	var total_brokerage = brokerage * parseInt($("#share-quantity").val());
 	// alert(total_brokerage);
 	if (total_brokerage < 17){
     brokerage = 17/parseInt($("#share-quantity").val())
- 	}
- 	$("#share-brokerage").removeAttr('readonly');
- 	$("#share-brokerage").val(brokerage)
- 	$("#share-brokerage").attr('readonly', true);
+ 	} 
+ 	brokerage =brokerage.toFixed(2);
+ 	$("#share-brokerage").val(brokerage);
  	
 
  	//Net rate calculation
  	if($('#share-buy').is(':checked') == false){
-   		var netRate = parseInt($("#share-rate").val()) - parseInt($("#share-brokerage").val());
+   		var netRate = $("#share-rate").val() - parseInt($("#share-brokerage").val());
 		}
     else{
-    	 var netRate = parseInt($("#share-rate").val()) + parseInt($("#share-brokerage").val()) ;
+    	 var netRate = $("#share-rate").val() + parseInt($("#share-brokerage").val());
 	}
 	$("#share-net_rate").val(netRate);
+	
 	
 	//Net Value calculation
 	var netValue = parseInt($("#share-net_rate").val()) * parseInt($("#share-quantity").val()) ;
      $("#share-net_value").val(netValue);
+     $("#share-net_value").attr('readonly', true);
+     $("#share-brokerage").attr('readonly', true);
+	 $("#share-net_rate").attr('readonly', true);
 });
-// $(document).on('change', '#share-quantity',function(){
-// 	if($("#js-scrip-name").val!="")
-// 		{
-// 			alert("abcd");
-// 		};
-// 	});
-
-
-
-
-//$(document).on('change', '#share-brokerage',function(){
-
-//$(document).on('click', '#share-brokerage',function(){ 
-//	 $("#share-brokerage").attr('readonly','readonly');
-//});
-
-
-
-//var a=$("#share-quantity").val() * $("#share-rate").val() * 0.01
-		//$("#share-brokerage").val(a);
-
-//$(document).ready(function(){
-//    var qty=$("#qty");
-//    qty.keyup(function(){
-//        var total=isNaN(parseInt(qty.val()* $("#price").val())) ? 0 :(qty.val()* $("#price").val())
-//        $("#total").val(total);
-//    });
-//});
-
-
-
-//$(document).on('click', '#share-buy',function() {
- //  		if($('#share-buy').is(':checked')) { alert(" Buy it's checked"); }
-  //   });

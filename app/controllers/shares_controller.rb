@@ -35,6 +35,7 @@ layout "admin"
 
   def edit
   	@share = Share.find(params[:id])
+    @equitys = Equity.order('code asc').all
   end
 
   def update
