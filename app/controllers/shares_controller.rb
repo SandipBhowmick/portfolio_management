@@ -42,7 +42,7 @@ layout "admin"
   	@share = Share.find(params[:id])
     	if @share.update_attributes(share_params)
   			flash[:notice]= "Transection details updated successfully"
-  			redirect_to(shares_path(:id))
+  			redirect_to(shares_path)
   		else
   			render(edit_share_path(:id))
   		end
