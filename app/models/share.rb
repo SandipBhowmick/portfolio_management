@@ -1,5 +1,5 @@
 class Share < ActiveRecord::Base
-
+	belongs_to :user
 	validates 	:scrip_name, :transaction_date,:buy_sell, :presence => true
 	validates 	:quantity,:rate,:brokerage, :presence => true, numericality: true	
 	#validates 	:scrip_name , :presence => true,

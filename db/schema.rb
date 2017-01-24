@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170116111058) do
+ActiveRecord::Schema.define(version: 20170123200217) do
 
   create_table "equities", force: :cascade do |t|
     t.string   "code",       limit: 255
@@ -31,9 +31,21 @@ ActiveRecord::Schema.define(version: 20170116111058) do
     t.integer  "net_value",        limit: 4
     t.integer  "bank_balance",     limit: 4
     t.integer  "demat_balance",    limit: 4
-    t.string   "user_id",          limit: 255
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+    t.string   "user_name",        limit: 255
   end
+
+  add_index "shares", ["user_name"], name: "index_shares_on_user_name", using: :btree
+
+  create_table "users", force: :cascade do |t|
+    t.string   "password_digest", limit: 255
+    t.string   "share_id",        limit: 255
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.string   "user_name",       limit: 255
+  end
+
+  add_index "users", ["user_name"], name: "index_users_on_user_name", using: :btree
 
 end

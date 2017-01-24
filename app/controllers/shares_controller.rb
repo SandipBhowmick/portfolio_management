@@ -60,7 +60,7 @@ layout "admin"
 
 private
   def share_params
-     	params.require(:share).permit(:scrip_name, :transaction_date, :buy_sell, :quantity, :rate, :brokerage, :net_rate, :net_value, :bank_balance, :demat_balance, :user_id )
+     	params.require(:share).permit(:scrip_name, :transaction_date, :buy_sell, :quantity, :rate, :brokerage, :net_rate, :net_value, :bank_balance, :demat_balance, :user_name )
   end
 
 end
