@@ -1,0 +1,27 @@
+<% @user_title = "Users" %>
+<div class="users index">
+	<h2> User </h2> 
+	<%= link_to(" Add a transaction details", {:action => 'new'}, :class => 'action new')%>			
+	<table class="listing" summary="Share list">
+		<tr class="header">
+			<th> User ID </th>
+			<th> User Name </th>
+			<th> Created date </th>
+			<th> Password </th>			
+		</tr>
+		<% @users.each do |user| %>
+		<tr class="<%= cycle('odd', 'even') %>">
+			<td><%= user.id %></td>	
+			<td><%= user.user_name %></td>
+			<td><%= user.created_at.to_date %></td>
+			<td><%= "*********" %></td>	
+			<td class="actions">
+		        <%= link_to("View Transactions", {:controller=> 'users',:action =>'index', :user_id => user.id}, :class => 'action show') %>
+		        <%= link_to("Show", {:action =>'show', :id => user.id}, :class => 'action show') %>
+		        <%= link_to("Edit", {:action => 'edit',:id => user.id}, :class => 'action edit') %>
+		        <%= link_to("Delete", {:action => 'destroy',:id => user.id}, :class => 'action delete') %>
+      		</td>	
+		</tr>		
+		<% end %>	
+	</table>
+</div>
